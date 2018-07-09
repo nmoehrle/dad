@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
     QList<QUrl> urls;
-    if (argc > 1)
+    if (argc > 1 || (argc == 2 && QString(argv[1]) == "-"))
     {
         for (int i = 1; i < argc; ++i)
         {
