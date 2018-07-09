@@ -40,13 +40,24 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    QTextStream stream(stdin);
-    QString line;
     QList<QUrl> urls;
-    while (stream.readLineInto(&line))
+    if (argc > 1)
     {
-        QFileInfo fileInfo(line);
-        urls.append(QUrl::fromLocalFile(fileInfo.absoluteFilePath()));
+        for (int i = 1; i < argc; ++i)
+        {
+            QFileInfo fileInfo(argv[i]);
+            urls.append(QUrl::fromLocalFile(fileInfo.absoluteFilePath()));
+        }
+    }
+    else
+    {
+        QTextStream stream(stdin);
+        QString line;
+        while (stream.readLineInto(&line))
+        {
+            QFileInfo fileInfo(line);
+            urls.append(QUrl::fromLocalFile(fileInfo.absoluteFilePath()));
+        }
     }
 
     Draggable draggable(std::move(urls));
