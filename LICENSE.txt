@@ -4,7 +4,7 @@ otherwise noted in the source file.
 Software License Agreement (BSD 3-Clause License)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2015, Nils Moehrle and others
+Copyright (c) 2018, Nils Moehrle
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
